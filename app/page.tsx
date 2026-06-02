@@ -182,20 +182,20 @@ export default function Home() {
           <div className="space-y-6">
             {[
               {
-                q: 'What's the difference between self-hosted and Cloud Pro?',
-                a: 'Self-hosted is free, open source, and you manage the infrastructure. Cloud Pro is $5/month — we handle everything, no setup required.'
+                q: "What's the difference between self-hosted and Cloud Pro?",
+                a: "Self-hosted is free, open source, and you manage the infrastructure. Cloud Pro is $5/month — we handle everything, no setup required."
               },
               {
-                q: 'Can I send events from my own servers?',
-                a: 'Yes! Use the ingest API (POST /v1/ingest). Send JSON with event data, we route to your configured destinations.'
+                q: "Can I send events from my own servers?",
+                a: "Yes! Use the ingest API (POST /v1/ingest). Send JSON with event data, we route to your configured destinations."
               },
               {
-                q: 'Is there a free trial for Cloud Pro?',
-                a: 'Yes. Cloud Pro includes 500 free events/month. After that, unlimited events for $5/mo.'
+                q: "Is there a free trial for Cloud Pro?",
+                a: "Yes. Cloud Pro includes 500 free events/month. After that, unlimited events for $5/mo."
               },
               {
-                q: 'What if I need more help?',
-                a: 'GitHub issues and discussions are free. Cloud Pro includes priority support.'
+                q: "What if I need more help?",
+                a: "GitHub issues and discussions are free. Cloud Pro includes priority support."
               },
             ].map((item, i) => (
               <div key={i} className="border-b border-slate-700 pb-6">
