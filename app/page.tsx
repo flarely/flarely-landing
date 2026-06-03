@@ -26,7 +26,7 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-24 px-4 sm:px-6 lg:px-8">
+      <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight">
             Error Notifications<br />
@@ -48,10 +48,20 @@ export default function Home() {
               href="https://github.com/flarely/flarely"
               target="_blank"
               rel="noopener noreferrer"
-              className="border border-slate-600 hover:border-slate-500 px-8 py-3 rounded-lg font-semibold transition"
+              className="border border-slate-500 hover:border-white hover:text-white px-8 py-3 rounded-lg font-semibold transition text-slate-300"
             >
               Star on GitHub
             </a>
+          </div>
+
+          {/* Code snippet */}
+          <div className="mt-12 max-w-xl mx-auto text-left">
+            <div className="bg-slate-950 border border-slate-700 rounded-xl p-5 font-mono text-sm">
+              <p className="text-slate-500 text-xs mb-3 font-sans">Send your first alert in seconds</p>
+              <p className="text-slate-300"><span className="text-blue-400">curl</span> -X POST https://app.getflarely.dev/v1/ingest \</p>
+              <p className="text-slate-300 pl-4"><span className="text-slate-500">-H </span><span className="text-green-400">"Authorization: Bearer sk_live_..."</span> \</p>
+              <p className="text-slate-300 pl-4"><span className="text-slate-500">-d </span><span className="text-yellow-400">{'\'{"title":"Payment failed","level":"error"}\''}</span></p>
+            </div>
           </div>
         </div>
       </section>
@@ -125,7 +135,7 @@ export default function Home() {
                 href="https://github.com/flarely/flarely"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full border border-slate-600 hover:border-slate-500 py-3 rounded-lg text-center font-semibold transition"
+                className="block w-full border border-slate-500 hover:border-white hover:text-white py-3 px-6 rounded-lg text-center font-semibold transition text-slate-300"
               >
                 Deploy Now
               </a>
@@ -138,7 +148,7 @@ export default function Home() {
                 <span className="bg-red-500 px-3 py-1 rounded-full text-sm font-semibold">Popular</span>
               </div>
               <p className="text-4xl font-bold mb-2">$5<span className="text-lg text-slate-400">/month</span></p>
-              <p className="text-slate-400 mb-6">Managed. No setup. Pay as you go.</p>
+              <p className="text-slate-400 mb-6">Managed. No setup. Cancel anytime.</p>
               <ul className="space-y-4 mb-8">
                 {['Unlimited events', 'All 5 destinations', 'Deduplication', 'Real-time dashboard', 'Premium support'].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
@@ -149,14 +159,14 @@ export default function Home() {
               </ul>
               <a
                 href={`${appUrl}/auth/github`}
-                className="w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 rounded-lg text-center font-semibold transition"
+                className="block w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 px-6 rounded-lg text-center font-semibold transition"
               >
                 Sign Up Free
               </a>
             </div>
           </div>
           <p className="text-center text-slate-400 mt-8">
-            Cloud Pro: 500 free events/month, then unlimited. No credit card required.
+            Start free · 500 events/month included · Upgrade to Pro for unlimited
           </p>
         </div>
       </section>
@@ -168,7 +178,7 @@ export default function Home() {
           <p className="text-slate-400 mb-8">Start free. Upgrade anytime. Cancel anytime.</p>
           <a
             href={`${appUrl}/auth/github`}
-            className="inline-block bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-8 py-3 rounded-lg font-semibold flex items-center gap-2 transition"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-8 py-3 rounded-lg font-semibold transition"
           >
             Get Started <ArrowRight size={20} />
           </a>
@@ -190,8 +200,8 @@ export default function Home() {
                 a: "Yes! Use the ingest API (POST /v1/ingest). Send JSON with event data, we route to your configured destinations."
               },
               {
-                q: "Is there a free trial for Cloud Pro?",
-                a: "Yes. Cloud Pro includes 500 free events/month. After that, unlimited events for $5/mo."
+                q: "What do I get for free on Cloud?",
+                a: "Sign up and get 500 events/month at no cost. When you need more, upgrade to Cloud Pro for $5/month — unlimited events."
               },
               {
                 q: "What if I need more help?",
@@ -213,7 +223,7 @@ export default function Home() {
           <div className="text-2xl font-bold text-red-500 mb-4 md:mb-0">Flarely</div>
           <div className="flex gap-8">
             <a href="https://github.com/flarely/flarely" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">GitHub</a>
-            <a href="https://github.com/flarely/flarely" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Docs</a>
+            <a href="https://github.com/flarely/flarely#readme" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Docs</a>
             <a href={appUrl} className="hover:text-white transition">Dashboard</a>
           </div>
           <div className="text-sm mt-4 md:mt-0">© 2026 Flarely. Licensed under AGPL-3.0.</div>
