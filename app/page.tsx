@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { CheckCircle2, Code2, Zap, Shield, Bell, ArrowRight } from 'lucide-react'
 
 export default function Home() {
-  const appUrl = 'https://app.getflarely.com'
+  const appUrl = 'https://app.getflarely.dev'
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
