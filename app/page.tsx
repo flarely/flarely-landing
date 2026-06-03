@@ -17,7 +17,7 @@ export default function Home() {
           <div className="flex gap-6 items-center">
             <a href="#features" className="hover:text-red-400 transition">Features</a>
             <a href="#pricing" className="hover:text-red-400 transition">Pricing</a>
-            <a href="https://github.com/flarely/flarely" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition">GitHub</a>
+            <a href="https://github.com/flarely/flarely#readme" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition">Docs</a>
             <a href={`${appUrl}/auth/github`} className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition">
               Sign In
             </a>
