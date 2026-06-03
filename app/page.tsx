@@ -14,7 +14,7 @@ export default function Home() {
           <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">
             Flarely
           </div>
-          <div className="flex gap-6">
+          <div className="flex gap-6 items-center">
             <a href="#features" className="hover:text-red-400 transition">Features</a>
             <a href="#pricing" className="hover:text-red-400 transition">Pricing</a>
             <a href="https://github.com/flarely/flarely" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition">GitHub</a>
