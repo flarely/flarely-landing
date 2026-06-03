@@ -99,8 +99,8 @@ export default function Home() {
               },
               {
                 icon: <Zap className="text-yellow-500" size={32} />,
-                title: 'Real-Time Dashboard',
-                desc: 'View events, track stats, manage projects and integrations.'
+                title: 'Event Dashboard',
+                desc: 'View events, track stats, manage projects and API keys.'
               }
             ].map((feature, i) => (
               <div key={i} className="p-6 border border-slate-700 rounded-lg hover:border-red-500 transition bg-slate-900/50">
@@ -119,11 +119,11 @@ export default function Home() {
           <h2 className="text-4xl font-bold text-center mb-16">Simple Pricing</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Free Tier */}
-            <div className="p-8 border border-slate-700 rounded-lg bg-slate-900/50">
+            <div className="p-8 border border-slate-700 rounded-lg bg-slate-900/50 flex flex-col">
               <h3 className="text-2xl font-bold mb-2">Self-Hosted</h3>
               <p className="text-4xl font-bold text-red-500 mb-6">Free</p>
               <p className="text-slate-400 mb-6">Deploy anywhere. Fully open source.</p>
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-4 mb-8 flex-1">
                 {['Unlimited events', 'All 5 destinations', 'Deduplication', 'Open source (AGPL)', 'Self-hosted'].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
                     <CheckCircle2 size={20} className="text-green-500" />
@@ -135,22 +135,19 @@ export default function Home() {
                 href="https://github.com/flarely/flarely"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full border border-slate-500 hover:border-white hover:text-white py-3 px-6 rounded-lg text-center font-semibold transition text-slate-300"
+                className="block w-full border border-slate-500 hover:border-white hover:text-white py-3 px-6 rounded-lg text-center font-semibold transition text-slate-300 mt-auto"
               >
                 Deploy Now
               </a>
             </div>
 
             {/* Pro Tier */}
-            <div className="p-8 border border-red-500 rounded-lg bg-red-500/10 ring-2 ring-red-500/50">
-              <div className="flex items-center justify-between mb-2">
-                <h3 className="text-2xl font-bold">Cloud Pro</h3>
-                <span className="bg-red-500 px-3 py-1 rounded-full text-sm font-semibold">Popular</span>
-              </div>
+            <div className="p-8 border border-red-500 rounded-lg bg-red-500/10 ring-2 ring-red-500/50 flex flex-col">
+              <h3 className="text-2xl font-bold mb-2">Cloud Pro</h3>
               <p className="text-4xl font-bold mb-2">$5<span className="text-lg text-slate-400">/month</span></p>
               <p className="text-slate-400 mb-6">Managed. No setup. Cancel anytime.</p>
-              <ul className="space-y-4 mb-8">
-                {['Unlimited events', 'All 5 destinations', 'Deduplication', 'Real-time dashboard', 'Premium support'].map((item, i) => (
+              <ul className="space-y-4 mb-8 flex-1">
+                {['500 free events/month to start', 'Unlimited events on Pro', 'All 5 destinations', 'Deduplication', 'Event dashboard', 'Priority support'].map((item, i) => (
                   <li key={i} className="flex items-center gap-3">
                     <CheckCircle2 size={20} className="text-red-500" />
                     {item}
@@ -159,7 +156,7 @@ export default function Home() {
               </ul>
               <a
                 href={`${appUrl}/auth/github`}
-                className="block w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 px-6 rounded-lg text-center font-semibold transition"
+                className="block w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 px-6 rounded-lg text-center font-semibold transition mt-auto"
               >
                 Sign Up Free
               </a>
