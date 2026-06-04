@@ -5,6 +5,7 @@ import { CheckCircle2, Code2, Zap, Shield, Bell, ArrowRight } from 'lucide-react
 
 export default function Home() {
   const appUrl = 'https://app.getflarely.dev'
+  const signUpUrl = `${appUrl}/login`
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
@@ -31,7 +32,7 @@ export default function Home() {
             <a href="#features" className="hover:text-red-400 transition">Features</a>
             <a href="#pricing" className="hover:text-red-400 transition">Pricing</a>
             <a href="https://github.com/flarely/flarely#readme" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition">Docs</a>
-            <a href={`${appUrl}/auth/github`} className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition">
+            <a href={signUpUrl} className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition">
               Sign In
             </a>
           </div>
@@ -52,7 +53,7 @@ export default function Home() {
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a
-              href={`${appUrl}/auth/github`}
+              href={signUpUrl}
               className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-8 py-3 rounded-lg font-semibold flex items-center gap-2 transition"
             >
               Get Started Free <ArrowRight size={20} />
@@ -168,7 +169,7 @@ export default function Home() {
                 ))}
               </ul>
               <a
-                href={`${appUrl}/auth/github`}
+                href={signUpUrl}
                 className="block w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 px-6 rounded-lg text-center font-semibold transition mt-auto"
               >
                 Sign Up Free
@@ -187,7 +188,7 @@ export default function Home() {
           <h2 className="text-3xl font-bold mb-6">Ready to ship error notifications?</h2>
           <p className="text-slate-400 mb-8">Start free. Upgrade anytime. Cancel anytime.</p>
           <a
-            href={`${appUrl}/auth/github`}
+            href={signUpUrl}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-8 py-3 rounded-lg font-semibold transition"
           >
             Get Started <ArrowRight size={20} />
