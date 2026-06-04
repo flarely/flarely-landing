@@ -1,0 +1,11 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="flareGrad" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#f97316"/>
+      <stop offset="100%" stop-color="#dc2626"/>
+    </linearGradient>
+  </defs>
+  <path d="M16 2C16 2 26 10 26 18C26 23.523 21.523 28 16 28C10.477 28 6 23.523 6 18C6 10 16 2 16 2Z" fill="url(#flareGrad)" opacity="0.25"/>
+  <path d="M16 8C16 8 22 13 22 18C22 21.314 19.314 24 16 24C12.686 24 10 21.314 10 18C10 13 16 8 16 8Z" fill="url(#flareGrad)" opacity="0.6"/>
+  <path d="M16 14C16 14 19 17 19 19.5C19 21.433 17.657 23 16 23C14.343 23 13 21.433 13 19.5C13 17 16 14 16 14Z" fill="url(#flareGrad)"/>
+</svg>

@@ -11,8 +11,21 @@ export default function Home() {
       {/* Navigation */}
       <nav className="fixed w-full top-0 z-50 bg-slate-900/80 backdrop-blur border-b border-slate-700">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-          <div className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">
-            Flarely
+          <div className="flex items-center gap-2">
+            <svg width="28" height="28" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="navFlame" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#f97316"/>
+                  <stop offset="100%" stopColor="#dc2626"/>
+                </linearGradient>
+              </defs>
+              <path d="M16 2C16 2 26 10 26 18C26 23.523 21.523 28 16 28C10.477 28 6 23.523 6 18C6 10 16 2 16 2Z" fill="url(#navFlame)" opacity="0.25"/>
+              <path d="M16 8C16 8 22 13 22 18C22 21.314 19.314 24 16 24C12.686 24 10 21.314 10 18C10 13 16 8 16 8Z" fill="url(#navFlame)" opacity="0.6"/>
+              <path d="M16 14C16 14 19 17 19 19.5C19 21.433 17.657 23 16 23C14.343 23 13 21.433 13 19.5C13 17 16 14 16 14Z" fill="url(#navFlame)"/>
+            </svg>
+            <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-red-500">
+              Flarely
+            </span>
           </div>
           <div className="flex gap-6 items-center">
             <a href="#features" className="hover:text-red-400 transition">Features</a>
@@ -217,7 +230,20 @@ export default function Home() {
       {/* Footer */}
       <footer className="border-t border-slate-700 py-12 px-4 sm:px-6 lg:px-8 text-slate-400">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
-          <div className="text-2xl font-bold text-red-500 mb-4 md:mb-0">Flarely</div>
+          <div className="flex items-center gap-2 mb-4 md:mb-0">
+            <svg width="22" height="22" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <linearGradient id="footerFlame" x1="4" y1="2" x2="28" y2="30" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stopColor="#f97316"/>
+                  <stop offset="100%" stopColor="#dc2626"/>
+                </linearGradient>
+              </defs>
+              <path d="M16 2C16 2 26 10 26 18C26 23.523 21.523 28 16 28C10.477 28 6 23.523 6 18C6 10 16 2 16 2Z" fill="url(#footerFlame)" opacity="0.25"/>
+              <path d="M16 8C16 8 22 13 22 18C22 21.314 19.314 24 16 24C12.686 24 10 21.314 10 18C10 13 16 8 16 8Z" fill="url(#footerFlame)" opacity="0.6"/>
+              <path d="M16 14C16 14 19 17 19 19.5C19 21.433 17.657 23 16 23C14.343 23 13 21.433 13 19.5C13 17 16 14 16 14Z" fill="url(#footerFlame)"/>
+            </svg>
+            <span className="text-xl font-bold text-red-500">Flarely</span>
+          </div>
           <div className="flex gap-8">
             <a href="https://github.com/flarely/flarely" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">GitHub</a>
             <a href="https://github.com/flarely/flarely#readme" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Docs</a>
