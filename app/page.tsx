@@ -31,7 +31,7 @@ export default function Home() {
           <div className="flex gap-6 items-center">
             <a href="#features" className="hover:text-red-400 transition">Features</a>
             <a href="#pricing" className="hover:text-red-400 transition">Pricing</a>
-            <a href="https://github.com/flarely/flarely#readme" target="_blank" rel="noopener noreferrer" className="hover:text-red-400 transition">Docs</a>
+            <Link href="/docs" className="hover:text-red-400 transition">Docs</Link>
             <a href={signUpUrl} className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition">
               Sign In
             </a>
@@ -247,7 +247,7 @@ export default function Home() {
           </div>
           <div className="flex gap-8">
             <a href="https://github.com/flarely/flarely" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">GitHub</a>
-            <a href="https://github.com/flarely/flarely#readme" target="_blank" rel="noopener noreferrer" className="hover:text-white transition">Docs</a>
+            <Link href="/docs" className="hover:text-white transition">Docs</Link>
             <a href={appUrl} className="hover:text-white transition">Dashboard</a>
           </div>
           <div className="text-sm mt-4 md:mt-0">© 2026 Flarely. Licensed under AGPL-3.0.</div>
