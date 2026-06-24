@@ -3,6 +3,23 @@
 import Link from 'next/link'
 import { CheckCircle2, Code2, Zap, Shield, Bell, ArrowRight } from 'lucide-react'
 
+function trackClick(label: string) {
+  fetch('https://app.getflarely.dev/v1/ingest', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.NEXT_PUBLIC_FLARELY_API_KEY ?? ''}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      title: `Landing: ${label}`,
+      message: `Someone clicked "${label}" on getflarely.dev`,
+      level: 'info',
+      source: 'flarely-landing',
+      fingerprint: `click-${label}-${Math.floor(Date.now() / 60000)}`, // dedup per minute
+    }),
+  }).catch(() => {})
+}
+
 export default function Home() {
   const appUrl = 'https://app.getflarely.dev'
   const signUpUrl = `${appUrl}/login`
@@ -32,7 +49,7 @@ export default function Home() {
             <a href="#features" className="hover:text-red-400 transition">Features</a>
             <a href="#pricing" className="hover:text-red-400 transition">Pricing</a>
             <Link href="/docs" className="hover:text-red-400 transition">Docs</Link>
-            <a href={signUpUrl} className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition">
+            <a href={signUpUrl} onClick={() => trackClick('Nav: Sign In')} className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition">
               Sign In
             </a>
           </div>
@@ -55,6 +72,7 @@ export default function Home() {
             <a
               href={signUpUrl}
               className="bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-8 py-3 rounded-lg font-semibold flex items-center gap-2 transition"
+              onClick={() => trackClick('Hero: Start free')}
             >
               Start free — no credit card <ArrowRight size={20} />
             </a>
@@ -63,6 +81,7 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className="border border-slate-500 hover:border-white hover:text-white px-8 py-3 rounded-lg font-semibold transition text-slate-300"
+              onClick={() => trackClick('Hero: Star on GitHub')}
             >
               Star on GitHub
             </a>
@@ -246,6 +265,7 @@ export default function Home() {
               <a
                 href={signUpUrl}
                 className="block w-full bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 py-3 px-6 rounded-lg text-center font-semibold transition mt-auto"
+                onClick={() => trackClick('Pricing: Start free cloud')}
               >
                 Start free — no credit card
               </a>
@@ -271,6 +291,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full border border-slate-500 hover:border-white hover:text-white py-3 px-6 rounded-lg text-center font-semibold transition text-slate-300 mt-auto"
+                onClick={() => trackClick('Pricing: Deploy Now self-host')}
               >
                 Deploy Now
               </a>
@@ -290,6 +311,7 @@ export default function Home() {
           <a
             href={signUpUrl}
             className="inline-flex items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 hover:from-red-700 hover:to-orange-700 px-8 py-3 rounded-lg font-semibold transition"
+            onClick={() => trackClick('CTA: Get Started')}
           >
             Get Started <ArrowRight size={20} />
           </a>
