@@ -195,7 +195,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: 'A full error platform (Sentry, etc.)',
+                title: 'A full error tracking platform',
                 body: 'Powerful, but heavy: an SDK per language, source maps, sampling, and a bill that scales with volume. Overkill when you just want a ping when something important happens.',
               },
               {
