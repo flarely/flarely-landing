@@ -6,6 +6,7 @@ import { CheckCircle2, Code2, Zap, Shield, Bell, ArrowRight } from 'lucide-react
 function trackClick(label: string) {
   fetch('https://app.getflarely.dev/v1/ingest', {
     method: 'POST',
+    keepalive: true, // survives page navigation
     headers: {
       'Authorization': `Bearer ${process.env.NEXT_PUBLIC_FLARELY_API_KEY ?? ''}`,
       'Content-Type': 'application/json',
@@ -15,7 +16,7 @@ function trackClick(label: string) {
       message: `Someone clicked "${label}" on getflarely.dev`,
       level: 'info',
       source: 'flarely-landing',
-      fingerprint: `click-${label}-${Math.floor(Date.now() / 60000)}`, // dedup per minute
+      fingerprint: `click-${label}-${Math.floor(Date.now() / 60000)}`,
     }),
   }).catch(() => {})
 }
