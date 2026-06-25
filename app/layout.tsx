@@ -2,10 +2,10 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Flarely — Error & Event Notifications for Developers',
-  description: 'Send real-time alerts from your app to Discord, Slack, or any webhook. Free tier, open source, self-hostable. No more missing critical errors.',
+  title: 'Flarely — Real-time event notifications for developers',
+  description: 'Know when anything important happens in your app. Send any event to Slack, Discord, Telegram, or email with one HTTP call. Free tier, open source, self-hostable.',
   metadataBase: new URL('https://getflarely.dev'),
-  keywords: ['error notifications', 'discord alerts', 'slack notifications', 'webhook alerting', 'self-hosted monitoring', 'event notifications', 'developer tools'],
+  keywords: ['event notifications', 'developer alerts', 'discord notifications', 'slack alerts', 'webhook alerting', 'self-hosted', 'cron monitoring', 'developer tools'],
   authors: [{ name: 'Flarely' }],
   openGraph: {
     title: 'Flarely — Error & Event Notifications for Developers',

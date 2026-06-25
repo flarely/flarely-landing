@@ -1,12 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { CheckCircle2, Code2, Zap, Shield, Bell, ArrowRight } from 'lucide-react'
+import { CheckCircle2, Code2, Zap, Shield, Bell, ArrowRight, MousePointerClick, CreditCard, Clock, GitCommit } from 'lucide-react'
 
 function trackClick(label: string) {
   fetch('https://app.getflarely.dev/v1/ingest', {
     method: 'POST',
-    keepalive: true, // survives page navigation
+    keepalive: true,
     headers: {
       'Authorization': `Bearer ${process.env.NEXT_PUBLIC_FLARELY_API_KEY ?? ''}`,
       'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ export default function Home() {
             </span>
           </div>
           <div className="flex gap-6 items-center">
-            <a href="#features" className="hover:text-red-400 transition">Features</a>
+            <a href="#usecases" className="hover:text-red-400 transition">Use cases</a>
             <a href="#pricing" className="hover:text-red-400 transition">Pricing</a>
             <Link href="/docs" className="hover:text-red-400 transition">Docs</Link>
             <a href={signUpUrl} onClick={() => trackClick('Nav: Sign In')} className="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg transition">
@@ -61,13 +61,13 @@ export default function Home() {
       <section className="pt-32 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl sm:text-6xl font-bold mb-6 leading-tight">
-            Know the moment<br />
+            Know when anything<br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-orange-500">
-              something breaks
+              important happens
             </span>
           </h1>
           <p className="text-xl text-slate-400 mb-8 max-w-2xl mx-auto">
-            One API call sends a payment failure, cron crash, or signup straight to Slack, Discord, Telegram, or email. No SDK, no agents, no dashboards to babysit — just alerts that show up where your team already is.
+            One HTTP endpoint. Send any event — an error, a signup, a payment, a button click — straight to Slack, Discord, Telegram, or email. No SDK. No setup. Just a curl.
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
             <a
@@ -94,17 +94,16 @@ export default function Home() {
           {/* Code snippet */}
           <div className="mt-12 max-w-xl mx-auto text-left">
             <div className="bg-slate-950 border border-slate-700 rounded-xl p-5 font-mono text-sm">
-              <p className="text-slate-500 text-xs mb-3 font-sans">Send your first alert in seconds</p>
+              <p className="text-slate-500 text-xs mb-3 font-sans">Any event. Any language. Delivered in seconds.</p>
               <p className="text-slate-300"><span className="text-blue-400">curl</span> -X POST https://app.getflarely.dev/v1/ingest \</p>
               <p className="text-slate-300 pl-4"><span className="text-slate-500">-H </span><span className="text-green-400">"Authorization: Bearer sk_live_..."</span> \</p>
-              <p className="text-slate-300 pl-4"><span className="text-slate-500">-d </span><span className="text-yellow-400">{'\'{"title":"Payment failed","level":"error"}\''}</span></p>
+              <p className="text-slate-300 pl-4"><span className="text-slate-500">-d </span><span className="text-yellow-400">{'\'{"title":"New signup","level":"info","source":"my-app"}\''}</span></p>
             </div>
           </div>
 
           {/* Dashboard mockup */}
           <div className="mt-16 max-w-4xl mx-auto">
             <div className="rounded-xl border border-slate-700 bg-slate-950 shadow-2xl overflow-hidden">
-              {/* Browser chrome */}
               <div className="flex items-center gap-2 px-4 py-3 border-b border-slate-800 bg-slate-900">
                 <span className="w-3 h-3 rounded-full bg-red-500/70" />
                 <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
@@ -113,7 +112,6 @@ export default function Home() {
                   app.getflarely.dev/dashboard
                 </div>
               </div>
-              {/* App body */}
               <div className="p-6 text-left">
                 <div className="flex items-center justify-between mb-6">
                   <div>
@@ -122,28 +120,27 @@ export default function Home() {
                   </div>
                   <span className="bg-red-600 text-white text-sm px-3 py-1.5 rounded-lg">+ New project</span>
                 </div>
-                {/* Stats */}
                 <div className="grid grid-cols-3 gap-4 mb-6">
-                  {[['Total Projects', '3'], ['Total Events', '1,248'], ['Active Destinations', '🔔']].map(([label, val]) => (
+                  {[['Total Projects', '4'], ['Total Events', '3,847'], ['Active Destinations', '🔔']].map(([label, val]) => (
                     <div key={label} className="border border-slate-800 rounded-lg p-4 bg-slate-900/50">
                       <p className="text-xs text-slate-500 mb-1">{label}</p>
                       <p className="text-2xl font-bold">{val}</p>
                     </div>
                   ))}
                 </div>
-                {/* Project cards */}
-                <div className="grid sm:grid-cols-3 gap-4">
+                <div className="grid sm:grid-cols-4 gap-3">
                   {[
-                    { name: 'Payments API', dest: 'Slack', color: 'from-purple-500/10 border-purple-500/20', events: '842' },
-                    { name: 'Cron Jobs', dest: 'Discord', color: 'from-indigo-500/10 border-indigo-500/20', events: '301' },
-                    { name: 'Web App', dest: 'Telegram', color: 'from-sky-500/10 border-sky-500/20', events: '105' },
+                    { name: 'Payments API', dest: 'Slack', color: 'from-purple-500/10 border-purple-500/20', events: '1,842' },
+                    { name: 'Cron Jobs', dest: 'Discord', color: 'from-indigo-500/10 border-indigo-500/20', events: '901' },
+                    { name: 'Landing Page', dest: 'Discord', color: 'from-orange-500/10 border-orange-500/20', events: '699' },
+                    { name: 'User Signups', dest: 'Telegram', color: 'from-sky-500/10 border-sky-500/20', events: '405' },
                   ].map((p) => (
                     <div key={p.name} className={`bg-gradient-to-br ${p.color} border rounded-xl p-4`}>
                       <div className="flex items-center justify-between mb-3">
                         <span className="text-xl">🔔</span>
                         <span className="text-[10px] text-slate-500 border border-slate-700 rounded px-1.5 py-0.5">Jun 2026</span>
                       </div>
-                      <p className="font-semibold">{p.name}</p>
+                      <p className="font-semibold text-sm">{p.name}</p>
                       <p className="text-xs text-slate-500 mb-3">{p.dest}</p>
                       <div className="flex items-center gap-1.5 text-xs text-slate-500 border-t border-slate-800 pt-2">
                         <span className="w-1.5 h-1.5 rounded-full bg-red-500 inline-block" />
@@ -158,41 +155,111 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features */}
-      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
+      {/* Use cases */}
+      <section id="usecases" className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16">Features</h2>
+          <h2 className="text-4xl font-bold text-center mb-4">Any event worth knowing about</h2>
+          <p className="text-slate-400 text-center mb-16 max-w-2xl mx-auto">
+            Flarely isn&apos;t just for errors. If it matters, send it.
+          </p>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                icon: <CreditCard className="text-red-400" size={28} />,
+                title: 'Payment failed',
+                desc: 'Know the instant a charge fails — before your customer does.',
+                code: '{"title":"Payment failed","level":"error"}',
+              },
+              {
+                icon: <Bell className="text-green-400" size={28} />,
+                title: 'New user signed up',
+                desc: 'A ping every time someone joins. Stay close to growth.',
+                code: '{"title":"New signup: jane@co.com","level":"info"}',
+              },
+              {
+                icon: <Clock className="text-yellow-400" size={28} />,
+                title: 'Cron job failed',
+                desc: 'Silent cron failures are the worst bugs. Not anymore.',
+                code: '{"title":"Daily backup failed","level":"critical"}',
+              },
+              {
+                icon: <MousePointerClick className="text-orange-400" size={28} />,
+                title: 'Landing page clicks',
+                desc: (
+                  <span>
+                    This page uses Flarely to track every CTA click in real time.{' '}
+                    <span className="text-orange-400 font-medium">Yes, really.</span>
+                  </span>
+                ),
+                code: '{"title":"Hero: Start free clicked","level":"info"}',
+                highlight: true,
+              },
+              {
+                icon: <GitCommit className="text-blue-400" size={28} />,
+                title: 'Deploy completed',
+                desc: 'Confirm every production deploy landed — or didn\'t.',
+                code: '{"title":"Deployed v2.4.1 to prod","level":"info"}',
+              },
+              {
+                icon: <Zap className="text-purple-400" size={28} />,
+                title: 'Threshold crossed',
+                desc: 'CPU spike, queue depth, API quota — alert on any metric.',
+                code: '{"title":"Queue depth > 1000","level":"warn"}',
+              },
+            ].map((uc, i) => (
+              <div
+                key={i}
+                className={`p-6 rounded-xl border bg-slate-900/50 flex flex-col gap-3 ${uc.highlight ? 'border-orange-500/50 bg-orange-500/5 ring-1 ring-orange-500/20' : 'border-slate-700'}`}
+              >
+                <div className="flex items-center gap-3">
+                  {uc.icon}
+                  <h3 className="font-semibold text-lg">{uc.title}</h3>
+                </div>
+                <p className="text-slate-400 text-sm leading-relaxed">{uc.desc}</p>
+                <div className="mt-auto pt-3 border-t border-slate-800">
+                  <code className="text-xs text-slate-500 font-mono">{uc.code}</code>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features */}
+      <section id="features" className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center mb-16">Built for simplicity</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: <Zap className="text-orange-500" size={32} />,
-                title: 'Fast & Simple API',
-                desc: 'Send errors in 2 lines of code. Generate API keys in seconds.'
+                title: 'One HTTP endpoint',
+                desc: 'POST JSON to /v1/ingest. Works from any language, any stack, any CI script.'
               },
               {
                 icon: <Bell className="text-red-500" size={32} />,
                 title: '5 Destinations',
-                desc: 'Route to Slack, Discord, Telegram, Email, or custom webhooks.'
+                desc: 'Route to Slack, Discord, Telegram, Email, or any custom webhook.'
               },
               {
                 icon: <Code2 className="text-blue-500" size={32} />,
                 title: 'Deduplication',
-                desc: 'Configurable duplicate detection per project. Stop notification spam.'
+                desc: 'Configurable dedup window per project. One alert per issue, not one per request.'
               },
               {
                 icon: <Shield className="text-green-500" size={32} />,
                 title: 'Open Source',
-                desc: 'Full source on GitHub. Deploy privately. No vendor lock-in.'
+                desc: 'Full source on GitHub. Self-host for free, no vendor lock-in, ever.'
               },
               {
                 icon: <CheckCircle2 className="text-purple-500" size={32} />,
-                title: 'Flexible Rate Limits',
-                desc: '100 req/min per API key. Free tier: 500 events/month.'
+                title: 'Multiple projects',
+                desc: 'Separate API keys per project. Route payments to Slack, deploys to Discord.'
               },
               {
                 icon: <Zap className="text-yellow-500" size={32} />,
-                title: 'Event Dashboard',
-                desc: 'View events, track stats, manage projects and API keys.'
+                title: 'Event dashboard',
+                desc: 'Browse event history, see stats, manage projects and keys — all in one place.'
               }
             ].map((feature, i) => (
               <div key={i} className="p-6 border border-slate-700 rounded-lg hover:border-red-500 transition bg-slate-900/50">
@@ -206,25 +273,25 @@ export default function Home() {
       </section>
 
       {/* Why Flarely */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-slate-800/50">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-4">Why not just use…?</h2>
           <p className="text-slate-400 text-center mb-16 max-w-2xl mx-auto">
-            Flarely is the boring, reliable middle ground between heavyweight error platforms and hand-rolled webhook scripts.
+            Flarely is the boring, reliable middle ground between heavyweight platforms and hand-rolled webhook scripts.
           </p>
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                title: 'A full error tracking platform',
-                body: 'Powerful, but heavy: an SDK per language, source maps, sampling, and a bill that scales with volume. Overkill when you just want a ping when something important happens.',
+                title: 'A full observability platform',
+                body: 'Powerful, but heavy: an SDK per language, agents, dashboards, and a bill that scales with volume. Overkill when you just want a ping when something happens.',
               },
               {
                 title: 'A raw Discord/Slack webhook',
-                body: 'Free, but you re-build the same plumbing every time — retries, dedup so you are not spammed, multiple destinations, rate limits. Flarely is that plumbing, done once.',
+                body: 'Free, but you re-build the same plumbing every time — dedup so you\'re not spammed, multiple destinations, retries, rate limits. Flarely is that plumbing, done once.',
               },
               {
                 title: 'Flarely',
-                body: 'One HTTP endpoint, any language. Built-in deduplication, 5 destinations, rate limits, and a dashboard. Free to start, $5/mo managed, or self-host for free.',
+                body: 'One HTTP endpoint, any language. Built-in deduplication, 5 destinations, and a dashboard. Free to start, $5/mo managed, or self-host for free.',
                 highlight: true,
               },
             ].map((c, i) => (
@@ -245,7 +312,6 @@ export default function Home() {
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-16">Simple Pricing</h2>
           <div className="grid md:grid-cols-2 gap-8">
-            {/* Cloud — primary, free to start */}
             <div className="p-8 border border-red-500 rounded-lg bg-red-500/10 ring-2 ring-red-500/50 flex flex-col relative">
               <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-red-600 text-white text-xs font-semibold px-3 py-1 rounded-full">
                 Most popular
@@ -272,7 +338,6 @@ export default function Home() {
               </a>
             </div>
 
-            {/* Self-Hosted */}
             <div className="p-8 border border-slate-700 rounded-lg bg-slate-900/50 flex flex-col">
               <h3 className="text-2xl font-bold mb-2">Self-Hosted</h3>
               <p className="text-4xl font-bold text-slate-200 mb-2">
@@ -307,7 +372,7 @@ export default function Home() {
       {/* CTA */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-red-600/20 to-orange-600/20 border-t border-b border-slate-700">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6">Ready to ship error notifications?</h2>
+          <h2 className="text-3xl font-bold mb-6">Stop finding out too late.</h2>
           <p className="text-slate-400 mb-8">Start free. Upgrade anytime. Cancel anytime.</p>
           <a
             href={signUpUrl}
@@ -326,16 +391,20 @@ export default function Home() {
           <div className="space-y-6">
             {[
               {
-                q: "What's the difference between self-hosted and Cloud Pro?",
-                a: "Self-hosted is free, open source, and you manage the infrastructure. Cloud Pro is $5/month — we handle everything, no setup required."
+                q: "Is this only for errors?",
+                a: "Not at all. Flarely works for any discrete event worth knowing about — errors, signups, payments, deploys, cron jobs, form submissions, button clicks. If it matters, send it."
               },
               {
-                q: "Can I send events from my own servers?",
-                a: "Yes! Use the ingest API (POST /v1/ingest). Send JSON with event data, we route to your configured destinations."
+                q: "What's the difference between self-hosted and Cloud?",
+                a: "Self-hosted is free, open source, and you manage the infrastructure. Cloud is managed — 500 events/month free, unlimited on Pro at $5/month. No setup required."
               },
               {
-                q: "What do I get for free on Cloud?",
-                a: "Sign up and get 500 events/month at no cost. When you need more, upgrade to Cloud Pro for $5/month — unlimited events."
+                q: "How do I send an event?",
+                a: "POST JSON to /v1/ingest with your API key. Works from any language, any CI script, any shell. No SDK needed."
+              },
+              {
+                q: "What if I get spammed with duplicate alerts?",
+                a: "Each project has a configurable deduplication window. Set it to 10 minutes and you'll get one alert per issue per 10 minutes, no matter how many times the event fires."
               },
               {
                 q: "What if I need more help?",

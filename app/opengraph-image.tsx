@@ -1,7 +1,7 @@
 import { ImageResponse } from 'next/og'
 
 export const runtime = 'edge'
-export const alt = 'Flarely — Error & Event Notifications for Developers'
+export const alt = 'Flarely — Real-time event notifications for developers'
 export const size = { width: 1200, height: 630 }
 export const contentType = 'image/png'
 
@@ -62,12 +62,12 @@ export default async function Image() {
           maxWidth: 700,
           lineHeight: 1.4,
         }}>
-          Error & event notifications for developers
+          Know when anything important happens in your app
         </div>
 
         {/* Pills */}
         <div style={{ display: 'flex', gap: 16, marginTop: 40 }}>
-          {['Discord', 'Slack', 'Webhook', 'Free tier'].map((tag) => (
+          {['Discord', 'Slack', 'Any event', 'Free tier'].map((tag) => (
             <div key={tag} style={{
               background: 'rgba(249,115,22,0.1)',
               border: '1px solid rgba(249,115,22,0.3)',
